@@ -2,9 +2,10 @@
   "name": "slack-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node bot.js",
+    "db:setup": "node dbschema.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,6 +13,8 @@
   "dependencies": {
     "@slack/bolt": "^2.0.0",
     "axios": "^0.19.2",
+    "knex": "^0.20.13",
+    "pg": "^8.0.0",
     "slackbots": "^1.2.0"
   }
 }
