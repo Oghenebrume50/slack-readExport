@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('workspaces', function (table) {
-    table.increments();
+    table.increments('id').primary();
     table.string('name').notNullable();
     table.specificType('channels', 'text ARRAY').notNullable();
     table.timestamp('created_at').defaultTo(knex.fn.now());
