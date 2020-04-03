@@ -17,4 +17,10 @@ dbHandler.insertRead = ({event, response}) => {
   console.log('read');
 }
 
+dbHandler.getRead = (readId) => {
+  return db.select('content')
+    .where('read_id', readId )
+    .from('reads')
+}
+
 module.exports = dbHandler;
