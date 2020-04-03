@@ -1,12 +1,9 @@
-knex = require('knex')({
-  client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    user : 'raphael',
-    password : 'open',
-    database : 'readExport'
-  }
-});
+const knex = require('knex');
 
-module.exports = knex;
+const knexfile = require('../knexfile');
+
+const env = process.env.NODE_ENV || 'development';
+const configOptions = knexfile[env];
+
+module.exports = knex(configOptions);
 

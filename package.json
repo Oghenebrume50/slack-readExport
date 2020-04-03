@@ -5,7 +5,9 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "db:setup": "node dbschema.js",
+    "migrate": "knex migrate:latest",
+    "unmigrate": "knex migrate:rollback",
+    "seed": "knex seed:run ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
