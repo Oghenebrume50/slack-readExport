@@ -4,7 +4,6 @@ const dbHandler = {};
 dbHandler.insertRead = ({event, response}) => {
   return db('reads')
     .then(function () {
-      // Inserts seed entries
       return db('reads')
       .returning('id')
       .insert({

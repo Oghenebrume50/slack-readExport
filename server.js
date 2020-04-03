@@ -1,8 +1,9 @@
+require('dotenv').config();
 const { App } = require('@slack/bolt');
 
 const bot = new App({
-  signingSecret: '053951c5d4aced4953eecb4d6b45ba0a',
-  token: 'xoxb-569049821472-1040770229136-8Zr9H7cNJYDOEMgilzrrWyTk'
+  signingSecret: process.env.SigningSecret,
+  token: process.env.Token
 });
 
 const port = 3000;
