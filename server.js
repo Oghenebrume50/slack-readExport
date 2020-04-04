@@ -10,15 +10,14 @@ const bot = new App({
 const port = 3000;
 const { app } = bot.receiver;
 
-console.log()
+console.log(app);
 app.get('/:readId', (req, res) => {
-  const readContent = dbHandler.getRead(req.params.readId).then(data =>res.json(data))
-  readContent.then(d => {
-    res.json(d);
-    console.log(d);
+  dbHandler.getRead(req.params.readId)
+  .then(d => {
+    res.json(d[0].content);
+    console.log(d[0]);
   })
   .catch( e => console.log(e))
-  //res.send("hey server runs too");
 });
 
 (async () => {
