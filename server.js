@@ -13,22 +13,17 @@ const { app } = bot.receiver;
 
 app.set('view engine', 'ejs');
 
-console.log(app);
-console.log('---------');
-
-console.log(app.route);
-
 app.get('/:readId', (req, res) => {
   dbHandler.getRead(req.params.readId)
   .then(d => {
-    res.json(d[0].content);
+    res.render('read', {contents: d});
     console.log(d[0]);
   })
   .catch( e => console.log(e))
 });
 
 app.get('/', function(req, res){ 
-  res.render('index',{user: "Great User"});
+  res.render('index');
 });
 
 (async () => {
