@@ -1,4 +1,5 @@
 require('dotenv').config();
+//const ejs = require('ejs');
 const { App } = require('@slack/bolt');
 const dbHandler = require('./dbhandler');
 
@@ -9,6 +10,8 @@ const bot = new App({
 
 const port = 3000;
 const { app } = bot.receiver;
+
+app.set('view engine', 'ejs');
 
 console.log(app);
 console.log('---------');
@@ -24,8 +27,9 @@ app.get('/:readId', (req, res) => {
   .catch( e => console.log(e))
 });
 
-app.route('/')
-.get((req, res) =>  res.sendFile((__dirname+'/index.html')));
+app.get('/', function(req, res){ 
+  res.render('index',{user: "Great User"});
+});
 
 (async () => {
   await bot.start(process.env.PORT || port);
