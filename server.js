@@ -11,6 +11,10 @@ const port = 3000;
 const { app } = bot.receiver;
 
 console.log(app);
+console.log('---------');
+
+console.log(app.route);
+
 app.get('/:readId', (req, res) => {
   dbHandler.getRead(req.params.readId)
   .then(d => {
@@ -19,6 +23,9 @@ app.get('/:readId', (req, res) => {
   })
   .catch( e => console.log(e))
 });
+
+app.route('/')
+.get((req, res) =>  res.sendFile((__dirname+'/index.html')));
 
 (async () => {
   await bot.start(process.env.PORT || port);

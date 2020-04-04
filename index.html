@@ -1,0 +1,135 @@
+<style>
+  body {
+      padding: 20px 50px;
+      background: rgb(15, 15, 15);
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace
+  }
+
+  .header h1 {
+      text-align: center;
+      color: rgb(255, 69, 0)
+  }
+
+  .header p {
+      text-align: center;
+      margin-bottom: 30px
+  }
+
+  .endpoint {
+      margin-left: 5%;
+      padding: 1px 20px 10px;
+      margin-bottom: 50px;
+      border-left: 1px solid rgb(255, 69, 0);
+      font-family: Arial, Helvetica, sans-serif
+  }
+
+  .category h2 {
+      text-align: center;
+      font-size: xx-large;
+      margin-top: 50px
+  }
+
+  .endpoint span {
+      display: inline-block;
+      min-width: 60px;
+      text-align: center;
+      background: rgb(255, 69, 0);
+      color: #ffffff;
+      border-radius: 5px;
+      padding: 5px 15px;
+      text-transform: uppercase;
+      font-weight: bolder;
+      margin-right: 10px
+  }
+
+  hr {
+      width: 70vw;
+      border-color: rgba(255, 68, 0, 0.055)
+  }
+</style>
+
+<div class="header">
+  <h1>Dev-Resources API Documentation</h1>
+  <p>This will server as basic documentation of the API and detail the various endpoints available</p>
+  <hr>
+</div>
+
+<div class="category">
+  <h2>User Endpoints</h2>
+
+  <div class="endpoint">
+      <h4>/user/auth/discord</h4>
+      <p><span class="rotate">get</span> request to authenticate users</p>
+  </div>
+
+  <div class="endpoint">
+      <h4>/user/logout</h4>
+      <p><span class="rotate">get</span> request logs out an authenticate user</p>
+  </div>
+
+  <div class="endpoint">
+      <h4>/user/profile</h4>
+      <p><span class="rotate">get</span> Request returns user details if logged in</p>
+      <p><span class="rotate">post</span> Request stores users session directly after authenticating</p>
+  </div>
+  <hr>
+</div>
+
+
+<!-- ====================================== -->
+<!--           RESOURCE ENDPOINTS           -->
+<!-- ====================================== -->
+
+
+<div class="category">
+  <h2>Resource Endpoints</h2>
+
+  <div class="endpoint">
+      <h4>/resource/all</h4>
+      <p><span class="rotate">get</span> request to list all resources</p>
+  </div>
+
+  <div class="endpoint">
+      <h4>/resource/:user/bookmark</h4>
+      <p><span class="rotate">get</span> request to return all resource the specified user has bookmarked</p>
+      <p><span class="rotate">post</span> Request to save a resource for the specified user</p>
+  </div>
+  <hr>
+</div>
+
+
+
+<!-- ====================================== -->
+<!--             STATS ENDPOINTS            -->
+<!-- ====================================== -->
+
+
+<div class="category">
+  <h2>Stats Endpoints</h2>
+
+  <div class="endpoint">
+      <h4>/stats</h4>
+      <p><span class="rotate">get</span> request placeholder</p>
+  </div>
+
+  <hr>
+</div>
+
+
+
+<!-- ====================================== -->
+<!--             COLAB ENDPOINTS            -->
+<!-- ====================================== -->
+
+
+<div class="category">
+  <h2>Contributor Endpoints</h2>
+
+  <div class="endpoint">
+      <h4>/contributor</h4>
+      <p><span class="rotate">get</span> request returns a JSON list of contributions</p>
+  </div>
+
+  <hr>
+</div>
