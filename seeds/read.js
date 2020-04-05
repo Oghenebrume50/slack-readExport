@@ -5,8 +5,9 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('reads').insert([
-        {read_id: '12234', content: ['fhfhghjghhgh','fhfjhbfjhfjf']},
-        {read_id: '23794', content: ['hbhfbhfbhbfjhbfhbjhbghb']}
+        {read_id: '12234', 
+        content: ['fhfjhkhhhgjhgjh,hgjhjhjhh,kjkk','kjk,bfjhfhfghfhg-gcgcgcgfjf']},
+        {read_id: '25794', content: ['hbhfbhfbhbfjhbfhbjhbghb']}
       ]);
     });
 };

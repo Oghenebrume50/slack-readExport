@@ -50,11 +50,10 @@
 </style>
 
 <div class="category">
-    <h2>User Endpoints</h2>
-  
-    <% contents.forEach(function(con){ %>
+    <h2>Exported content</h2>
+    <% contents.forEach(function(content){ %>
         <div class="endpoint">
-            <p>welcome <%= con.content%>;</p>
+            <p><%= content %></p>
         </div>
     <% }); %>
     

@@ -12,7 +12,7 @@ bot.event("app_mention", async ({ context, event }) => {
     if (response) {
       console.log("in response");
 
-      dbHandler.insertRead({
+      dbHandler.insertAllText({
         event,
         response
       });
