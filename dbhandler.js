@@ -1,5 +1,5 @@
 const db = require('./db');
-const getAllMessages = require('./utils/all_thread');
+const getMessages = require('./utils/get_thread');
 
 const dbHandler = {};
 
@@ -26,7 +26,7 @@ dbHandler.insertAllText = ({event, response}) => {
       .returning('id')
       .insert({
         read_id: event.channel + event.thread_ts,
-        content: getAllMessages(response.messages)
+        content: getMessages.getAllUserMessage(response.messages)
       });
     }).catch((err) => {
       console.log("did not save this "+err);
