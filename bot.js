@@ -1,4 +1,5 @@
 const dbHandler = require("./dbhandler");
+const fileHandler = require("./file_handler");
 const bot = require("./server");
 const botMention = require('./utils/bot_mention');
 
@@ -10,7 +11,7 @@ bot.event("app_mention", async ({ context, event }) => {
       ts: event.thread_ts
     });
 
-    if (botMention(event)) {
+    if (botMention.onlyBotName(event)) {
       if (response) {
         console.log("in response");
 
@@ -28,6 +29,10 @@ bot.event("app_mention", async ({ context, event }) => {
             event.thread_ts} ! 🎉 `
         });
       }
+    } else if(botMention.botForFile(event)) {
+      console.log('in file now');
+      console.log(response);
+      fileHandler.sendToFile({event, response});
     }
   } catch (error) {
     console.error(error);

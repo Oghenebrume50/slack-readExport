@@ -1,5 +1,4 @@
 require('dotenv').config();
-//const ejs = require('ejs');
 const { App } = require('@slack/bolt');
 const dbHandler = require('./dbhandler');
 
