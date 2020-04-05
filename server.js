@@ -15,6 +15,7 @@ app.set('view engine', 'ejs');
 app.get('/:readId', (req, res) => {
   dbHandler.getRead(req.params.readId)
   .then(data => {
+    console.log(data[0].content[0]);
     res.render('read', {contents: data[0].content});
   })
   .catch( e => console.log(e))

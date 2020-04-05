@@ -15,12 +15,9 @@ dbHandler.insertRead = ({event, response}) => {
     }).catch((err) => {
       console.log("did not save this "+err);
     });
-  console.log('read');
 }
 
 dbHandler.insertAllText = ({event, response}) => {
-  console.log(response);
-  console.log('ppppppppppppppppp');
   console.log(response.messages);
   
   return db('reads')
@@ -34,7 +31,6 @@ dbHandler.insertAllText = ({event, response}) => {
     }).catch((err) => {
       console.log("did not save this "+err);
     });
-  console.log('read');
 }
 
 dbHandler.getRead = async (readId) => {

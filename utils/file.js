@@ -3,10 +3,8 @@ const fs = require('fs');
 const createFolder = (path) => {
   fs.mkdir(path, {recursive: true}, (error) => {
     if(error) {
-      console.log('an error occurred '+ error);
-    } else {
-      console.log('folder created');
-    }
+      return 'an error occurred '+ error;
+    } 
   });
 }
 
