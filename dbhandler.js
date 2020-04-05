@@ -19,6 +19,10 @@ dbHandler.insertRead = ({event, response}) => {
 }
 
 dbHandler.insertAllText = ({event, response}) => {
+  console.log(response);
+  console.log('ppppppppppppppppp');
+  console.log(response.messages);
+  
   return db('reads')
     .then(function () {
       return db('reads')
@@ -26,7 +30,7 @@ dbHandler.insertAllText = ({event, response}) => {
       .insert({
         read_id: event.channel + event.thread_ts,
         content: getAllMessages(response.messages)
-      })
+      });
     }).catch((err) => {
       console.log("did not save this "+err);
     });

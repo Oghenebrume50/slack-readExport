@@ -1,5 +1,6 @@
 const dbHandler = require("./dbhandler");
 const bot = require("./server");
+const botMention = require('./utils/bot_mention');
 
 bot.event("app_mention", async ({ context, event }) => {
   try {
@@ -9,22 +10,24 @@ bot.event("app_mention", async ({ context, event }) => {
       ts: event.thread_ts
     });
 
-    if (response) {
-      console.log("in response");
+    if (botMention(event)) {
+      if (response) {
+        console.log("in response");
 
-      dbHandler.insertAllText({
-        event,
-        response
-      });
+        dbHandler.insertAllText({
+          event,
+          response
+        });
 
-      await bot.client.chat.postMessage({
-        token: context.botToken,
-        channel: event.channel,
-        thread_ts: response.messages[0].ts,
-        text: `<@${event.user}> here you go ${"http://localhost:3000/" +
-          event.channel +
-          event.thread_ts} ! 🎉 `
-      });
+        await bot.client.chat.postMessage({
+          token: context.botToken,
+          channel: event.channel,
+          thread_ts: response.messages[0].ts,
+          text: `<@${event.user}> here you go ${"http://localhost:3000/" +
+            event.channel +
+            event.thread_ts} ! 🎉 `
+        });
+      }
     }
   } catch (error) {
     console.error(error);
