@@ -35,7 +35,7 @@ bot.event("app_mention", async ({ context, event }) => {
           token: context.botToken,
           channel: event.channel,
           thread_ts: response.messages[0].ts,
-          text: `<@${event.user}> here you go ${"http://localhost:3000/" + urlPath} ! 🎉 `
+          text: `<@${event.user}> here you go ${"https://slack-readexport.herokuapp.com/" + urlPath} ! 🎉 `
         });
       }
     } else if(botMention.botForFile(event)) {
