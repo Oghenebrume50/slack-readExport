@@ -1,4 +1,5 @@
 const fs = require('fs');
+const logger = require('./logger');
 
 const createFolder = (path) => {
   fs.mkdir(path, {recursive: true}, (error) => {
