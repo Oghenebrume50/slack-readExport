@@ -1,19 +1,20 @@
 const db = require('./db');
+const logger = require('./utils/logger');
 const getMessages = require('./utils/get_thread');
 
 const dbHandler = {};
 
-dbHandler.insertRead = ({event, response}) => {
+dbHandler.insertFirstText = ({event, response}) => {
   return db('reads')
     .then(function () {
       return db('reads')
       .returning('id')
       .insert({
-        read_id: event.channel + event.thread_ts,
+        read_id: event.channel + event.thread_ts + 'first',
         content: [response.messages[0].text]
       })
     }).catch((err) => {
-      console.log("did not save this "+err);
+      logger.info("did not insert first text to db "+err);
     });
 }
 
@@ -29,7 +30,7 @@ dbHandler.insertAllText = ({event, response}) => {
         content: getMessages.getAllUserMessage(response.messages)
       });
     }).catch((err) => {
-      console.log("did not save this "+err);
+      logger.info("did not insert all to db "+err);
     });
 }
 

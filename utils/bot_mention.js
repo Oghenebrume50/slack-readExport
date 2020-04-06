@@ -1,23 +1,17 @@
-const onlyBotName = (event) => {
-  text = '<@U0116NN6R40>';
+const botForWeb = (event) => {
+  const text = '<@U0116NN6R40>';
+  const firstText = '<@U0116NN6R40> first';
 
-  return event.text === text ? true : false;
+  return event.text === text || event.text === firstText ? true : false;
 }
 
 const botForFile = (event) => {
-  text = '<@U0116NN6R40> -f';
+  const text = '<@U0116NN6R40> -f';
 
   return event.text.includes(text) ? true : false;
 }
 
-const onlyFirstText = (event) => {
-  text = '<@U0116NN6R40> first';
-
-  
-}
-
 module.exports = {
-  onlyBotName,
-  botForFile,
-  onlyFirstText
+  botForWeb,
+  botForFile
 }

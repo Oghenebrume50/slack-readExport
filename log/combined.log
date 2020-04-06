@@ -1,0 +1,2 @@
+{"message":"did not insert to db Error: yoo e nor work o","level":"info"}
+{"message":"An error occurred with the read route TypeError: Cannot read property 'content' of undefined","level":"info"}

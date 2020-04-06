@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { App } = require('@slack/bolt');
 const dbHandler = require('./dbhandler');
+const logger = require('./utils/logger');
 
 const bot = new App({
   signingSecret: process.env.SigningSecret,
@@ -15,10 +16,9 @@ app.set('view engine', 'ejs');
 app.get('/:readId', (req, res) => {
   dbHandler.getRead(req.params.readId)
   .then(data => {
-    console.log(data[0].content[0]);
     res.render('read', {contents: data[0].content});
   })
-  .catch( e => console.log(e))
+  .catch( err => logger.info("An error occurred with the read route "+err))
 });
 
 app.get('/', function(req, res){ 
@@ -27,7 +27,7 @@ app.get('/', function(req, res){
 
 (async () => {
   await bot.start(process.env.PORT || port);
-  console.log('⚡️ Bolt app is running!');
+  //console.log('⚡️ Bolt app is running!');
 })();
 
 module.exports = bot;
