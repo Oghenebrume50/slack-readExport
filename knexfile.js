@@ -1,13 +1,13 @@
-// Update with your config settings.
+require('dotenv').config();
 
 module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      user : 'raphael',
-      password : 'open',
-      database : 'readexport'
+      host : process.env.Host,
+      user : process.env.User,
+      password : process.env.Password,
+      database : process.env.Database
     },
     migrations: {
       directory: './dbschema',

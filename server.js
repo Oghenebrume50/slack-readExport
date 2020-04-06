@@ -8,6 +8,7 @@ const bot = new App({
   token: process.env.Token
 });
 
+console.log(process.env.User);
 const port = 3000;
 const { app } = bot.receiver;
 
@@ -27,7 +28,7 @@ app.get('/', function(req, res){
 
 (async () => {
   await bot.start(process.env.PORT || port);
-  //console.log('⚡️ Bolt app is running!');
+  logger.info("started on port "+ port);
 })();
 
 module.exports = bot;
