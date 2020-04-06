@@ -8,7 +8,6 @@ const bot = new App({
   token: process.env.Token
 });
 
-console.log(process.env.User);
 const port = 3000;
 const { app } = bot.receiver;
 

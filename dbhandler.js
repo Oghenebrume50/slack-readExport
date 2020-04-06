@@ -18,9 +18,7 @@ dbHandler.insertFirstText = ({event, response}) => {
     });
 }
 
-dbHandler.insertAllText = ({event, response}) => {
-  console.log(response.messages);
-  
+dbHandler.insertAllText = ({event, response}) => { 
   return db('reads')
     .then(function () {
       return db('reads')

@@ -3,7 +3,7 @@ const fs = require('fs');
 const createFolder = (path) => {
   fs.mkdir(path, {recursive: true}, (error) => {
     if(error) {
-      return 'an error occurred '+ error;
+      logger.info("An error occured in folder creation "+  error);
     } 
   });
 }
@@ -11,10 +11,8 @@ const createFolder = (path) => {
 const createFile = ({path, content}) => {
   fs.writeFile(path, content, (error) => {
     if(error) {
-      console.log('an error occurred '+ error);
-    } else {
-      console.log('file created');
-    }
+      logger.info("An error occured in file creation "+  error);
+    } 
   });
 }
 

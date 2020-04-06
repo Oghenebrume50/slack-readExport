@@ -7,3 +7,8 @@
 {"message":"started on port 3000","level":"info"}
 {"message":"started on port 3000","level":"info"}
 {"message":"started on port 3000","level":"info"}
+{"message":"started on port 3000","level":"info"}
+{"message":"An error occurred with the read route TypeError: Cannot read property 'content' of undefined","level":"info"}
+{"message":"did not insert all to db error: insert into \"reads\" (\"content\", \"read_id\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"reads_read_id_unique\"","level":"info"}
+{"message":"started on port 3000","level":"info"}
+{"message":"An error occurred with the read route TypeError: Cannot read property 'content' of undefined","level":"info"}
