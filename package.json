@@ -1,5 +1,5 @@
 {
-  "name": "slack-bot",
+  "name": "slack-readexport",
   "version": "1.0.0",
   "description": "",
   "main": "bot.js",
@@ -7,10 +7,12 @@
     "start": "node bot.js",
     "migrate": "knex migrate:latest",
     "unmigrate": "knex migrate:rollback",
-    "seed": "knex seed:run ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "knex seed:run "
   },
-  "author": "",
+  "engines": {
+    "node": "12.16.1"
+  },
+  "author": "Raphael Noriode",
   "license": "ISC",
   "dependencies": {
     "@slack/bolt": "^2.0.0",
