@@ -2,10 +2,9 @@ const manageFile = require('./utils/file');
 const getMessages = require('./utils/get_thread');
 const check = require('./utils/check');
 
-const path =  require('os').homedir()+'/Downloads/slackReadExport/';
+const path =  `${__dirname}/files/`;
 
 const sendToFile = ({event, response}) => {
-  manageFile.createFolder(path);
   let givenFilename = '';
   let content = '';
 
@@ -24,9 +23,11 @@ const sendToFile = ({event, response}) => {
     path: path + filename,
     content: content.toString()
   });
+
+  return filename;
 }
 
 
-module.exports = { 
+module.exports = {
   sendToFile
 };

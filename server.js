@@ -13,6 +13,11 @@ const { app } = bot.receiver;
 
 app.set('view engine', 'ejs');
 
+app.get('/file/:filename', function(req, res){
+  const file = `${__dirname}/files/${req.params.filename}`;
+  res.download(file);
+});
+
 app.get('/:readId', (req, res) => {
   dbHandler.getRead(req.params.readId)
   .then(data => {
@@ -21,7 +26,7 @@ app.get('/:readId', (req, res) => {
   .catch( err => logger.info("An error occurred with the read route "+err))
 });
 
-app.get('/', function(req, res){ 
+app.get('/', (req, res) => {
   res.render('index');
 });
 

@@ -5,6 +5,8 @@ const botMention = require('./utils/bot_mention');
 const check = require('./utils/check');
 const logger = require('./utils/logger');
 
+const urlhost = "https://slack-readexport.herokuapp.com/";
+
 bot.event("app_mention", async ({ context, event }) => {
   try {
     const response = await bot.client.conversations.replies({
@@ -35,15 +37,15 @@ bot.event("app_mention", async ({ context, event }) => {
           token: context.botToken,
           channel: event.channel,
           thread_ts: response.messages[0].ts,
-          text: `<@${event.user}> here you go ${"https://slack-readexport.herokuapp.com/" + urlPath} ! 🎉 `
+          text: `<@${event.user}> here you go ${urlhost + urlPath} ! 🎉 `
         });
       }
     } else if(botMention.botForFile(event)) {
-      fileHandler.sendToFile({event, response});
+      const file = fileHandler.sendToFile({event, response});
       await bot.client.chat.postMessage({
         token: context.botToken,
         channel: event.user,
-        text: `here you go file saved in Downloads/slackReadExport ! 🎉 `
+        text: `click ${urlhost + 'file/' + file} to download your file, disappears in 72hours! 🎉 `
       });
     }
   } catch (error) {
