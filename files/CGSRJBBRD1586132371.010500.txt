@@ -1,0 +1,6 @@
+1. omewhere; the mechanics of this are beyond the scope of this post.
+2. That web server interprets the request (the URL plus some other information that invisibly — and equally magically — comes along with it) and figures out what information needs to get sent back to the requestor
+In that second step, the URL gets broken up into its four distinct components. And, if you actually start digging into web server logs, you will find that each of these components is stored in a separate “field” in each log entry. If you actually _enjoy_ digging into web server logs, then, well, you’re not alone. You officially have one of the markers used to identify career digital analysts!
+Component 1: The Protocol
+,called the *Welcome App*! Once installed in a workspace, it will create a new channel named *#the-welcome-channel* if it doesn’t already exist. The channel will
+

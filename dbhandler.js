@@ -32,6 +32,28 @@ dbHandler.insertAllText = ({event, response}) => {
     });
 }
 
+dbHandler.saveTeam = ({access_token, bot_user_id, id, name, bot_id}) => {
+  console.log(access_token, id, name, bot_user_id);
+  return db('workspaces')
+      .returning('id')
+      .insert({
+        team_name: name,
+        team_id: id,
+        bot_user_id: bot_user_id,
+        token: access_token,
+        bot_id: bot_id
+      }).catch((err) => {
+    logger.info("did not insert all to db, could not save team "+err);
+  });
+}
+
+dbHandler.checkTeam = async () => {
+  const teams = await db.select('team_id', 'bot_user_id', 'bot_id', 'token')
+    .from('workspaces')
+
+  return teams;
+}
+
 dbHandler.getRead = async (readId) => {
   return await db.select('content')
     .where('read_id', readId )
