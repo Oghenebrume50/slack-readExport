@@ -1,4 +1,0 @@
-server logs, you will find that each of these components is stored in a separate “field” in each log entry. If you actually _enjoy_ digging into web server logs, then, well, you’re not alone. You officially have o
-,f you actually _enjoy_ digging into web server logs, then, well, you’re not
-,dgg dghgth errtrtht eerggvbyjy egfrgtr
-
