@@ -45,7 +45,7 @@ bot.event("app_mention", async ({ context, event }) => {
       await bot.client.chat.postMessage({
         token: context.botToken,
         channel: event.user,
-        text: `click ${urlhost + 'file/' + file} to download your file, disappears in 72hours! 🎉 `
+        text: `click ${urlhost + 'file/' + file} to download your file now, it will disappear soon! 🎉 `
       });
     }
   } catch (error) {
