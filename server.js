@@ -12,6 +12,7 @@ const authorizeFn = async ({ teamId }) => {
   const teams = await dbHandler.checkTeam();
   for (const team of teams) {
     if (team.team_id === teamId) {
+      console.log(team);
       return {
         botToken: team.token,
         botId: team.bot_id,
