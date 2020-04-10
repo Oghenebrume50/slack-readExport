@@ -5,7 +5,7 @@ const botMention = require('./utils/bot_mention');
 const check = require('./utils/check');
 const logger = require('./utils/logger');
 
-const urlhost = "https://fdf0e3e0.ngrok.io/";
+const urlhost = "https://slack-readexport.herokuapp.com/";
 
 bot.event("app_mention", async ({ context, event }) => {
   try {
