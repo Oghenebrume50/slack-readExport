@@ -1,8 +1,10 @@
-const getAllUserMessage = (messages) => {
+const getAllUserMessage = (messages, event) => {
   const allText = [];
-
+  const event_text = event.text.slice(0, event.text.indexOf('>') + 1);
+  
   messages.forEach((message) => {
-    if (!message.bot_id && !message.text.includes('<@U0116NN6R40>')) {
+    const message_text = message.text.slice(0, message.text.indexOf('>') + 1);
+    if (!message.bot_id && event_text !== message_text) {
       allText.push(message.text + '\n\r');
     }
   });

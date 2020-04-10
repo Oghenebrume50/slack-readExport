@@ -25,7 +25,7 @@ dbHandler.insertAllText = ({event, response}) => {
       .returning('id')
       .insert({
         read_id: event.channel + event.thread_ts,
-        content: getMessages.getAllUserMessage(response.messages)
+        content: getMessages.getAllUserMessage(response.messages, event)
       });
     }).catch((err) => {
       logger.info("did not insert all to db "+err);
@@ -33,7 +33,6 @@ dbHandler.insertAllText = ({event, response}) => {
 }
 
 dbHandler.saveTeam = ({access_token, bot_user_id, id, name, bot_id}) => {
-  console.log(access_token, id, name, bot_user_id);
   return db('workspaces')
       .returning('id')
       .insert({

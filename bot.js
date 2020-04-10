@@ -8,7 +8,7 @@ const logger = require('./utils/logger');
 const urlhost = "https://fdf0e3e0.ngrok.io/";
 
 bot.event("app_mention", async ({ context, event }) => {
-  console.log('heareeee');
+  console.log('djdjbdhbjdhbjb');
   console.log(event);
   try {
     const response = await bot.client.conversations.replies({

@@ -12,7 +12,6 @@ const authorizeFn = async ({ teamId }) => {
   const teams = await dbHandler.checkTeam();
   for (const team of teams) {
     if (team.team_id === teamId) {
-      console.log(team);
       return {
         botToken: team.token,
         botId: team.bot_id,
@@ -72,14 +71,12 @@ app.get('/finish_auth', (req, res) => {
           res.redirect(`https://app.slack.com/client/${authData.id}`);
         }
       })
-      .catch(e => console.log('eer'+ e));
+      .catch(e => logger('error saving response '+ e));
     })
     .catch(function (error) {
-      console.log('damn errorrrrrrrrrrrrrr');
-      console.log(error);
+      logger('authentication error '+ error)
     });
   }
-  res.send("happy checking here");
 });
 
 app.get('/:readId', (req, res) => {

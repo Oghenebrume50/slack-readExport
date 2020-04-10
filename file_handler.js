@@ -13,7 +13,7 @@ const sendToFile = ({event, response}) => {
     content = getMessages.getFirstUserMessage(response.messages);
   } else {
     givenFilename = event.text.slice(event.text.indexOf('-f') + 3);
-    content = getMessages.getAllUserMessage(response.messages);
+    content = getMessages.getAllUserMessage(response.messages, event);
   }
 
   const defaultFilename = event.channel + event.thread_ts + '.txt';
@@ -23,7 +23,6 @@ const sendToFile = ({event, response}) => {
     path: path + filename,
     content: content.toString()
   });
-
   return filename;
 }
 
