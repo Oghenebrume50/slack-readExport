@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { App, ExpressReceiver} = require('@slack/bolt');
+const randomString = require('randomstring');
 const dbHandler = require('./dbhandler');
 const logger = require('./utils/logger');
 
@@ -27,9 +28,8 @@ const bot = new App({
 });
 
 const app = expressReceiver.app;
-const state = '12345678';
+const state = randomString.generate(7);
 const port = 3000;
-
 
 app.set('view engine', 'ejs');
 
@@ -43,6 +43,7 @@ app.get('/file/:filename', function(req, res){
 });
 
 app.get('/add', (req,res) => {
+  res.write('<p>Click on the button below to add this app to your workspace</p>');
   res.write(slackButton());
   res.end();
 });
